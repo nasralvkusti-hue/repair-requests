@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "RepairRequests.WinForms": {
+      "commandName": "Project",
+      "nativeDebugging": false,
+      "hotReloadEnabled": false
+    }
+  }
+}

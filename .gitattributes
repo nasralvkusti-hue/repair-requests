@@ -1,0 +1,3 @@
+# Batch-файлы должны иметь CRLF, иначе cmd.exe разбирает их некорректно
+*.cmd text eol=crlf
+*.bat text eol=crlf

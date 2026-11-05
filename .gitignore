@@ -1,0 +1,32 @@
+# Сборочные артефакты .NET
+bin/
+obj/
+publish/
+*.user
+*.suo
+
+# База данных и журналы
+*.db
+*.db-shm
+*.db-wal
+App_Data/
+logs/
+*.log
+
+# Средства IDE
+.vs/
+.vscode/
+.idea/
+
+# Временные файлы и результаты экспорта
+*.tmp
+*.bak
+export/
+docs/_build/
+docs/exports/
+
+# Пакеты
+packages/
+
+# Служебные файлы Office
+~$*
