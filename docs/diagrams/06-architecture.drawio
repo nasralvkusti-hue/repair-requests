@@ -1,0 +1,71 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="06-architecture" name="06-architecture">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1240" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ui" value="RepairRequests.WinForms (.NET 10, Windows Forms)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D9D9D9;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontStyle=1;fontFamily=Times New Roman;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="1160" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ui_60" value="Forms
+LoginForm, MainMenuForm, RequestsForm,
+RequestEditForm, VehiclesForm, FaultsForm, ReportForm" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="85" width="350" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ui_440" value="Infrastructure
+AppServices (DI), UiTheme,
+AppPaths, обработка ошибок" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="440" y="85" width="350" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ui_820" value="Ресурсы
+appsettings.json, иконки,
+журналы Serilog" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="820" y="85" width="360" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="core" value="RepairRequests.Core (.NET 10, библиотека)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D9D9D9;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontStyle=1;fontFamily=Times New Roman;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="40" y="270" width="1160" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="core_60" value="Models
+User, Vehicle, FaultType,
+RepairRequest, RequestStatusHistory" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="325" width="260" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="core_340" value="Repositories
+IRepairRequestRepository,
+IVehicleRepository, IFaultTypeRepository" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="340" y="325" width="280" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="core_640" value="Services
+AuthService, RequestWorkflow,
+RepairStatisticsService, AnalyticsService" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="640" y="325" width="300" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="core_960" value="Data
+AppDbContext, DbSeeder,
+миграции EF Core" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="960" y="325" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="db" value="SQLite
+repair-requests.db" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;dashed=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="420" y="570" width="400" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="libs" value="Внешние библиотеки: EF Core 10, ClosedXML, QuestPDF, Serilog" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=5;fillColor=#F7F7F7;strokeColor=#000000;dashed=1;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="570" width="340" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tests" value="RepairRequests.Tests (xUnit)
+133 модульных и интеграционных теста" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=5;fillColor=#F7F7F7;strokeColor=#000000;dashed=1;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="690" width="1140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="вызовы сервисов и репозиториев" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ui" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="EF Core / SQLite" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="core" target="db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="проверяет" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="tests" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

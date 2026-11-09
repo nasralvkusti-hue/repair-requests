@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="03-class" name="03-class">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1270" pageHeight="980" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="user" value="&lt;b&gt;User&lt;/b&gt;&lt;hr size='1' noshade&gt;- Id: int- FullName: string- Email: string- PasswordHash: string- Role: UserRole- Phone: string?- IsBlocked: bool- CreatedAt: DateTime- LastLoginAt: DateTime?&lt;hr size='1' noshade&gt;+ IsInRole(role): bool+ IsActive(): bool" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="40" width="300" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="vehicle" value="&lt;b&gt;Vehicle&lt;/b&gt;&lt;hr size='1' noshade&gt;- Id: int- OwnerId: int- Brand: string- Model: string- LicensePlate: string- Vin: string?- Year: int- Mileage: int&lt;hr size='1' noshade&gt;+ Owner: User" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="390" y="40" width="300" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="fault" value="&lt;b&gt;FaultType&lt;/b&gt;&lt;hr size='1' noshade&gt;- Id: int- Name: string- Category: string- Description: string?- NormHours: decimal- BasePrice: decimal- IsActive: bool&lt;hr size='1' noshade&gt;+ Requests: List&amp;lt;RepairRequest&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="750" y="40" width="300" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="request" value="&lt;b&gt;RepairRequest&lt;/b&gt;&lt;hr size='1' noshade&gt;- Id: int- Number: string- VehicleId: int- FaultTypeId: int- ClientId: int- AssignedMechanicId: int?- Description: string- Priority: RequestPriority- Status: RequestStatus- CreatedAt: DateTime- StartedAt / CompletedAt: DateTime?- LaborCost / PartsCost: decimal- PlannedCompletion: DateTime?&lt;hr size='1' noshade&gt;+ TotalCost: decimal+ IsEditable: bool" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="400" width="380" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="history" value="&lt;b&gt;RequestStatusHistory&lt;/b&gt;&lt;hr size='1' noshade&gt;- Id: int- RequestId: int- Status: RequestStatus- ChangedAt: DateTime- ChangedById: int?- Comment: string?" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="790" y="430" width="310" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="role" value="&lt;b&gt;UserRole&lt;/b&gt;&lt;hr size='1' noshade&gt;Client = 1Manager = 2Administrator = 3" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#F2F2F2;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="400" width="250" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="status" value="&lt;b&gt;RequestStatus&lt;/b&gt;&lt;hr size='1' noshade&gt;New = 1Accepted = 2InProgress = 3Completed = 4Closed = 5Cancelled = 6" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#F2F2F2;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="540" width="250" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="priority" value="&lt;b&gt;RequestPriority&lt;/b&gt;&lt;hr size='1' noshade&gt;Low = 1Normal = 2High = 3Critical = 4" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#F2F2F2;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="730" width="250" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="владелец  1 : 0..*" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.35;entryDx=0;entryDy=0;" edge="1" parent="1" source="user" target="vehicle">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="1 : 0..*" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.4;exitY=1;exitDx=0;exitDy=0;entryX=0.4;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="vehicle" target="request">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="1 : 0..*" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.9;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fault" target="request">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="1 : 0..*" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.35;entryDx=0;entryDy=0;" edge="1" parent="1" source="request" target="history">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="клиент  1 : 0..*" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.4;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;" edge="1" parent="1" source="user" target="request">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="механик  0..1" style="endArrow=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.7;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.45;entryDx=0;entryDy=0;" edge="1" parent="1" source="user" target="request">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="зависимость" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="role" target="user">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="status" target="request">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.4;exitDx=0;exitDy=0;entryX=0;entryY=0.95;entryDx=0;entryDy=0;" edge="1" parent="1" source="priority" target="request">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="05-3nf" name="05-3nf">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1220" pageHeight="740" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="flat" value="&lt;b&gt;Исходное отношение «Заявка» (нарушение 3НФ)&lt;/b&gt;&lt;hr size='1' noshade&gt;Номер заявкиДата созданияКлиентТелефон клиентаАвтомобильМаркаМодельГосномерВладелецНеисправностьКатегорияНорматив, чСтоимость работ" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="340" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="dep1" value="Номер → Клиент → Телефон клиента
+
+Транзитивная зависимость от неключевого
+атрибута «Клиент» — нарушение 3НФ." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=5;fillColor=#F7F7F7;strokeColor=#000000;dashed=1;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="430" y="60" width="740" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dep2" value="Номер → Автомобиль → Марка, Модель, Госномер, Владелец
+
+Данные автомобиля повторяются в каждой заявке." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=5;fillColor=#F7F7F7;strokeColor=#000000;dashed=1;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="430" y="165" width="740" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dep3" value="Номер → Неисправность → Категория, Норматив
+
+Нормативная трудоёмкость зависит от вида неисправности,
+а не от конкретной заявки." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=5;fillColor=#F7F7F7;strokeColor=#000000;dashed=1;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="430" y="270" width="740" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="fix" value="Устранение: вынесение справочников Users, Vehicles, FaultTypes
+и хранение в заявке только внешних ключей (Id)." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=5;fillColor=#F7F7F7;strokeColor=#000000;dashed=1;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="430" y="375" width="740" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Users" value="&lt;b&gt;Users&lt;/b&gt;&lt;hr size='1' noshade&gt;PK IdФИО, EmailТелефон" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="545" width="260" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="t_Vehicles" value="&lt;b&gt;Vehicles&lt;/b&gt;&lt;hr size='1' noshade&gt;PK IdFK OwnerIdМарка, модель, номер" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="545" width="270" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="t_FaultTypes" value="&lt;b&gt;FaultTypes&lt;/b&gt;&lt;hr size='1' noshade&gt;PK IdНаименованиеКатегория, норматив" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="630" y="545" width="270" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="t_RepairRequests" value="&lt;b&gt;RepairRequests&lt;/b&gt;&lt;hr size='1' noshade&gt;PK IdFK VehicleIdFK FaultTypeIdFK ClientId" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1;fontColor=#000000;fontFamily=Times New Roman;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="930" y="545" width="260" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="result" value="Итог: каждая таблица хранит атрибуты, зависящие только от её первичного ключа (3НФ)." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingTop=5;fillColor=#F7F7F7;strokeColor=#000000;dashed=1;fontFamily=Times New Roman;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="690" width="1150" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="декомпозиция" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;fontFamily=Times New Roman;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="flat" target="fix">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
