@@ -77,7 +77,7 @@ dotnet publish src\RepairRequests.WinForms\RepairRequests.WinForms.csproj `
 Чтобы начать с чистой демонстрационной базы, закройте программу и удалите
 файлы `data\repair-requests.db`, `data\repair-requests.db-shm`,
 `data\repair-requests.db-wal`. При следующем запуске база будет создана заново
-с теми же данными (генератор использует фиксированное зерно).
+с тем же набором демонстрационных данных.
 
 ## Структура проекта
 
